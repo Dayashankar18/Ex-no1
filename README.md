@@ -28,7 +28,7 @@ To write and execute Assembly Language Programs to perform arithmetic operations
 
 
 ## FLOW CHART
-<![Uploading ChatGPT Image Feb 2, 2026, 11_22_10 AM.png…]()" />
+<<img width="1024" height="1536" alt="add_flowchart" src="https://github.com/user-attachments/assets/c1947a37-7253-4cb7-9bac-8909a0519dc0" />" />
 
 
 #### Program
