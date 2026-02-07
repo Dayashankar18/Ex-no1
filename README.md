@@ -158,8 +158,8 @@ END
 #### Output Table
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
-| ----------------------- | ------------------------ |
-|                         |                          |
+| ----1200------------------- | ------21------------------ |
+|     1201                    |        00                  |
 
 #### Manual Calculations
 
@@ -186,18 +186,28 @@ END
 ```asm
 CODE SEGMENT
 ASSUME CS: CODE, DS: CODE
+
 ORG 1000H
-MOV SI,2000H
-MOV DX,0000H
-MOV AX,[SI]
-MOV BX,[SI+02H]
-DIV BX
-MOV [SI+04H],AX
-MOV [SI+06H],DX
-MOV AH,4CH
-INT 21H
+
+    MOV CL, 00H        ; Clear CL (optional flag/remainder indicator)
+
+    MOV AX, 0084H     ; Dividend (low word)
+    MOV BX, 0004H     ; Divisor
+    MOV DX, 0000H     ; Clear DX before division
+
+    DIV BX             ; AX = AX / BX, DX = remainder
+
+L1:
+    MOV SI, 1200H
+    MOV [SI], AX       ; Store QUOTIENT at 1200H
+    MOV [SI+2], DX     ; Store REMAINDER at 1202H
+
+    MOV AH, 4CH
+    INT 21H
+
 CODE ENDS
 END
+
 ```
 
 #### Output Table
@@ -213,6 +223,7 @@ END
 ---
 ## OUTPUT FROM MASM SOFTWARE
 
+<img width="644" height="404" alt="Screenshot (60)" src="https://github.com/user-attachments/assets/69cde208-2555-4c32-a7f8-661f80bd9dae" />
 
 
 ## RESULT
