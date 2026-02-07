@@ -214,7 +214,8 @@ END
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|                         |                          |
+|     1200                |       21                 |
+|     1201                |       00                 |
 
 #### Manual Calculations
 
@@ -223,7 +224,7 @@ END
 ---
 ## OUTPUT FROM MASM SOFTWARE
 
-<img width="644" height="404" alt="Screenshot (60)" src="https://github.com/user-attachments/assets/69cde208-2555-4c32-a7f8-661f80bd9dae" />
+<img width="644" height="147" alt="Screenshot (60)" src="https://github.com/user-attachments/assets/8cd07269-8710-4b6b-8942-d1d67637db72" />
 
 
 ## RESULT
