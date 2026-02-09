@@ -110,7 +110,8 @@ END
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------------------------ |
-|                         |                          |
+|    1200                 |         50               |
+|    1201                 |         00               |
 
 #### Manual Calculations
 
@@ -120,6 +121,8 @@ END
 
 
 ## OUTPUT SCREEN FROM MASM SOFTWARE
+<img width="638" height="130" alt="Screenshot (61)" src="https://github.com/user-attachments/assets/8d47f89b-ca2f-4f9c-9518-53e513b5d703" />
+
 
 ## 3. MULTIPLICATION
 
