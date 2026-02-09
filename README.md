@@ -89,20 +89,20 @@ END
 CODE SEGMENT
 ASSUME CS: CODE, DS: CODE
 ORG 1000H
-MOV SI,2000H
 MOV CL,00H
-MOV AX,[SI]
-MOV BX,[SI+02H]
+MOV AX,1250H
+MOV BX,1200H
 SUB AX,BX
 JNC L1
 INC CL
-L1:
-MOV [SI+04H],AX
-MOV [SI+06H],CL
+L1:MOV SI,1200H
+MOV [SI], AX
+MOV [SI+2], CL
 MOV AH,4CH
 INT 21H
 CODE ENDS
 END
+
 ```
 
 
@@ -145,24 +145,28 @@ END
 CODE SEGMENT
 ASSUME CS: CODE, DS: CODE
 ORG 1000H
-MOV SI,2000H
-MOV DX,0000H
-MOV AX,[SI]
-MOV BX,[SI+02H]
-MUL BX
-MOV [SI+04H],AX
-MOV [SI+06H],DX
+MOV CL,00H
+MOV AX,1234H
+MOV BX,124H
+MUL AX
+JNC L1
+INC CL
+L1:MOV SI,1200H
+MOV [SI], AX
+MOV [SI+2], CL
 MOV AH,4CH
 INT 21H
 CODE ENDS
 END
+
 ```
 
 #### Output Table
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
-| ----1200------------------- | ------21------------------ |
-|     1201                    |        00                  |
+| ----------------------- | ------ ------------------ |
+|     1200                   |        90                  |
+|     1201                |           5A              |
 
 #### Manual Calculations
 
@@ -171,6 +175,8 @@ END
 ---
 
 ## OUTPUT SCREEN FROM MASM SOFTWARE
+<img width="638" height="130" alt="Screenshot (61)" src="https://github.com/user-attachments/assets/38395367-0af4-447c-b9e9-9731e5f489a0" />
+
 
 ## 4. DIVISION
 
