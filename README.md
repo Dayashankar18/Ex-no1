@@ -175,7 +175,7 @@ END START               ; Tell the assembler where the entry point is
 #### Output Table
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
-| ----------------------- | ------ ------------------ |
+| ----------------------- | ------------------------- |
 |     1200                |           50              |
 |     1201                |           C3              |
 |     1202                |           14              |
