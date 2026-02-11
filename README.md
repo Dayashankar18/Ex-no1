@@ -62,6 +62,7 @@ END
 #### Manual Calculations
 
 (Add your calculation here)
+<img width="1106" height="598" alt="image" src="https://github.com/user-attachments/assets/e3ff950b-a33d-4537-9834-35a9b033edbc" />
 
 ---
 
@@ -118,7 +119,8 @@ END
 
 (Add your calculation here)
 
----
+---<img width="1408" height="570" alt="image" src="https://github.com/user-attachments/assets/e5ef2fe2-09dc-42df-91cb-fb4270e4a335" />
+
 
 
 ## OUTPUT SCREEN FROM MASM SOFTWARE
@@ -143,22 +145,30 @@ END
 #### Program
 
 ```asm
-CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
-ORG 1000H
-MOV CL,00H
-MOV AX,1234H
-MOV BX,124H
-MUL AX
-JNC L1
-INC CL
-L1:MOV SI,1200H
-MOV [SI], AX
-MOV [SI+2], CL
-MOV AH,4CH
-INT 21H
-CODE ENDS
-END
+CODE_SEG SEGMENT        ; Define the start of the segment
+    ASSUME CS:CODE_SEG, DS:CODE_SEG
+    ORG 100H            ; Standard offset for COM files
+
+START:
+    MOV AX, 1234H
+    MOV BX, 124H
+    MUL BX              ; Result is in DX:AX
+
+    MOV CL, 00H
+    JNC L1
+    INC CL
+
+L1:
+    MOV SI, 1200H
+    MOV [SI], AX        ; Store Low Word
+    MOV [SI+2], DX      ; Store High Word
+    MOV [SI+4], CL      ; Store Carry Flag
+
+    MOV AH, 4CH         ; Return to DOS
+    INT 21H
+
+CODE_SEG ENDS           ; Properly close the segment
+END START               ; Tell the assembler where the entry point is
 
 ```
 
@@ -166,17 +176,20 @@ END
 
 | MEMORY LOCATION (INPUT) | MEMORY LOCATION (OUTPUT) |
 | ----------------------- | ------ ------------------ |
-|     1200                   |        90                  |
-|     1201                |           5A              |
+|     1200                |        50                 |
+|     1201                |           C3              |
+|     1202                |           14              |
 
 #### Manual Calculations
 
 (Add your calculation here)
+<img width="1600" height="911" alt="image" src="https://github.com/user-attachments/assets/a71bbec7-12a2-4ba9-87ee-09f5e021ff57" />
 
 ---
 
 ## OUTPUT SCREEN FROM MASM SOFTWARE
-<img width="638" height="130" alt="Screenshot (61)" src="https://github.com/user-attachments/assets/38395367-0af4-447c-b9e9-9731e5f489a0" />
+<img width="644" height="141" alt="Screenshot (65)" src="https://github.com/user-attachments/assets/661d0e30-549c-465e-be34-fa5b5529c0ea" />
+
 
 
 ## 4. DIVISION
@@ -230,6 +243,7 @@ END
 #### Manual Calculations
 
 (Add your calculation here)
+<img width="1518" height="678" alt="image" src="https://github.com/user-attachments/assets/225882ea-8a65-463a-8666-22d964a01743" />
 
 ---
 ## OUTPUT FROM MASM SOFTWARE
